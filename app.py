@@ -5,17 +5,21 @@ Created on Thu Jan 15 11:42:25 2026
 @author: tatsf
 """
 
+# ---- password gate (MUST be near the top) ----
+pw = st.text_input("Password", type="password")
+
+if not pw:
+    st.stop()
+
+if pw != st.secrets.get("APP_PASSWORD", ""):
+    st.error("Incorrect password")
+    st.stop()
+
 import io
 import joblib
 import pandas as pd
 import streamlit as st
 
-PASSWORD = st.secrets["APP_PASSWORD"]
-
-pw = st.text_input("Password", type="password")
-if pw != PASSWORD:
-    st.stop()
-    
 st.set_page_config(page_title="GPC Classifier", layout="centered")
 st.title("GaussianProcessClassifier: CSV → Predict → CSV")
 
