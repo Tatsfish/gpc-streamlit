@@ -5,6 +5,9 @@ Created on Thu Jan 15 11:42:25 2026
 @author: tatsf
 """
 import streamlit as st
+
+st.set_page_config(page_title="GPC Classifier", layout="centered")
+
 # ---- password gate (MUST be near the top) ----
 pw = st.text_input("Password", type="password")
 
@@ -20,7 +23,7 @@ import joblib
 import pandas as pd
 import streamlit as st
 
-st.set_page_config(page_title="GPC Classifier", layout="centered")
+
 st.title("GaussianProcessClassifier: CSV → Predict → CSV")
 
 @st.cache_resource
