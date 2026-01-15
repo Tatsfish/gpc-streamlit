@@ -10,6 +10,12 @@ import joblib
 import pandas as pd
 import streamlit as st
 
+PASSWORD = st.secrets["APP_PASSWORD"]
+
+pw = st.text_input("Password", type="password")
+if pw != PASSWORD:
+    st.stop()
+    
 st.set_page_config(page_title="GPC Classifier", layout="centered")
 st.title("GaussianProcessClassifier: CSV → Predict → CSV")
 
