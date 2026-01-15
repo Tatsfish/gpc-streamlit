@@ -4,7 +4,7 @@ Created on Thu Jan 15 11:42:25 2026
 
 @author: tatsf
 """
-
+import streamlit as st
 # ---- password gate (MUST be near the top) ----
 pw = st.text_input("Password", type="password")
 
